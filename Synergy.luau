@@ -73,15 +73,19 @@ function PrintService.Random(text)
 end
 
 -- Ultra-Verbose Enterprice™ Mega Print
-function PrintService.Enterprice(text)
+-- Ultra-Verbose Enterprice™ Mega Print (Randomized)
+function PrintService:Enterprice(text)
+	local methods = {self.Classic, self.Chaotic, self.Cryptic, self.Rage, self.Quantum}
+	local choice = methods[math.random(1, #methods)]
 	print("╔═『ENTERPRICE™ LEGENDARY』═╗")
 	print("╟ OUTPUT:")
-	print("╟ " .. text)
+	choice(self, text) -- random method chosen
 	print("╟ QUANTUM PREDICTION:")
 	print("╟ " .. QuantumPredict(text))
 	print("╟ PHILOSOPHICAL CONTEXT:")
 	print(PHILOSOPHY)
 	print("╚═══════════════════════════╝")
 end
+
 
 return PrintService
